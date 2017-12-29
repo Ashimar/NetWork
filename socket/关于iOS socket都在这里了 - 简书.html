@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)https://www.jianshu.com/p/3e4f3de18e3b -->
+<html><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+
+  <!-- Start of Baidu Transcode -->
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="MobileOptimized" content="width">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="mobile-agent" content="format=html5;url=https://www.jianshu.com/p/3e4f3de18e3b">
+  <!-- End of Baidu Transcode -->
+
+    <meta name="description" content="socket（套接字）是通信的基石，是支持TCP/IP协议的网络通信的基本操作单元，包含进行网络通信必须的五种信息：连接使用的协议，本地主机的IP地址，本地进程的协议端口，远地主机的IP地址，远地进程的协议端口。 多个TCP连接或多个应用程序进程可能需要通过同一个TCP协议端口传输数据。为了区别不同的应用程序进程和连接，计算机操作系统为应用程序与TCP／IP协议交互提供了套接字(Socket...">
+
+  <meta name="360-site-verification" content="604a14b53c6b871206001285921e81d8">
+  <meta property="wb:webmaster" content="294ec9de89e7fadb">
+  <meta property="qc:admins" content="104102651453316562112116375">
+  <meta property="qc:admins" content="11635613706305617">
+  <meta property="qc:admins" content="1163561616621163056375">
+  <meta name="google-site-verification" content="cV4-qkUJZR6gmFeajx_UyPe47GW9vY6cnCrYtCHYNh4">
+  <meta name="google-site-verification" content="HF7lfF8YEGs1qtCE-kPml8Z469e2RHhGajy6JPVy5XI">
+  <meta http-equiv="mobile-agent" content="format=html5; url=https://www.jianshu.com/p/3e4f3de18e3b">
+
+  <!-- Apple -->
+  <meta name="apple-mobile-web-app-title" content="简书">
+
+    <!--  Meta for Smart App Banner -->
+  <meta name="apple-itunes-app" content="app-id=888237539, app-argument=jianshu://notes/4065405">
+  <!-- End -->
+
+  <!--  Meta for Twitter Card -->
+  <meta content="summary" property="twitter:card">
+  <meta content="@jianshucom" property="twitter:site">
+  <meta content="关于iOS socket都在这里了" property="twitter:title">
+  <meta content="socket（套接字）是通信的基石，是支持TCP/IP协议的网络通信的基本操作单元，包含进行网络通信必须的五种信息：连接使用的协议，本地主机的IP地址，本地进程的协议端口，远地主机的IP地址，远地进程的协议端口。 多个TCP连接或多个应用程序进程可能需要通过同一个TCP协议端口传输数据。为了区别不同的应用程序进程和连接，计算机操作系统为应用程序与TCP／IP协议交互提供了套接字(Socket)接口。应用层可以和传输层通过Socket接口，区分来自不同应用程序进程或网络连接的通信，实现数据传输的并发服务。 建立Socket连接至少需要一对套接字，其中一个运行于客户端，称为ClientSoc..." property="twitter:description">
+  <meta content="https://www.jianshu.com/p/3e4f3de18e3b" property="twitter:url">
+  <!-- End -->
+
+  <!--  Meta for OpenGraph -->
+  <meta property="fb:app_id" content="865829053512461">
+  <meta property="og:site_name" content="简书">
+  <meta property="og:title" content="关于iOS socket都在这里了">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.jianshu.com/p/3e4f3de18e3b">
+  <meta property="og:description" content="socket（套接字）是通信的基石，是支持TCP/IP协议的网络通信的基本操作单元，包含进行网络通信必须的五种信息：连接使用的协议，本地主机的IP地址，本地进程的协议端口，远地主机的IP地址，远...">
+  <!-- End -->
+
+  <!--  Meta for Facebook Applinks -->
+  <meta property="al:ios:url" content="jianshu://notes/4065405">
+  <meta property="al:ios:app_store_id" content="888237539">
+  <meta property="al:ios:app_name" content="简书">
+
+  <meta property="al:android:url" content="jianshu://notes/4065405">
+  <meta property="al:android:package" content="com.jianshu.haruki">
+  <meta property="al:android:app_name" content="简书">
+  <!-- End -->
+
+
+    <title>关于iOS socket都在这里了 - 简书</title>
+
+  <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="7gAeO5YVXYPiipdTTfEQcRsvgol5NS+lHJ6464F4nN/h9rpv7GFkiNat/z3Pv/G88PsV9HaWgfBp3e+nBin0QA==">
+
+  <link rel="stylesheet" media="all" href="./关于iOS socket都在这里了 - 简书_files/web-9a426ac97f34593e6662.css">
+  
+  <link rel="stylesheet" media="all" href="./关于iOS socket都在这里了 - 简书_files/entry-a5d96d4884b6cddc11f7.css">
+
+  <link href="https://cdn2.jianshu.io/assets/favicons/favicon-03411b154a430b85d807b4366489c21122fb983a38f3d7ca926f882e6367b13e.ico" rel="icon">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/57-a6f1f1ee62ace44f6dc2f6a08575abd3c3b163288881c78dd8d75247682a4b27.png" sizes="57x57">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/72-fb9834bcfce738fd7b9c5e31363e79443e09a81a8e931170b58bc815387c1562.png" sizes="72x72">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/76-49d88e539ff2489475d603994988d871219141ecaa0b1a7a9a1914f4fe3182d6.png" sizes="76x76">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/114-24252fe693524ed3a9d0905e49bff3cbd0228f25a320aa09053c2ebb4955de97.png" sizes="114x114">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/120-1bb7371f5e87f93ce780a5f1a05ff1b176828ee0d1d130e768575918a2e05834.png" sizes="120x120">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/152-bf209460fc1c17bfd3e2b84c8e758bc11ca3e570fd411c3bbd84149b97453b99.png" sizes="152x152">
+
+  <!-- Start of 访问统计 -->
+  <script src="./关于iOS socket都在这里了 - 简书_files/push.js"></script><script src="./关于iOS socket都在这里了 - 简书_files/hm.js"></script><script async="" src="./关于iOS socket都在这里了 - 简书_files/analytics.js"></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35169517-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0c0e9d9b1e7d617b3e6842e85b9fb068";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+  <!-- End of 访问统计 -->
+<style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.main {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 0 30px 0;
+  width: 620px;
+}
+.main .title {
+    padding-left: 8px;
+    border-left: 3px solid #EA6F5A;
+    line-height: 1;
+    font-size: 15px;
+}
+.main .collection-settings {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    font-size: 13px;
+    color: #A0A0A0;
+}
+.main .collection-settings span {
+      padding-left: 4px;
+}
+.main .include-collection {
+    width: 100%;
+    padding-top: 20px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+}
+.main .include-collection .item {
+      display: inline-block;
+      margin: 0 12px 12px 0;
+      min-height: 32px;
+      background-color: white;
+      border: 1px solid #DCDCDC;
+      border-radius: 4px;
+      vertical-align: top;
+      overflow: hidden;
+}
+.main .include-collection .item img {
+        width: 32px;
+        height: 32px;
+}
+.main .include-collection .item .name {
+        display: inline-block;
+        padding: 0 10px;
+        font-size: 14px;
+}
+.main .include-collection .add-collection-wrap {
+      margin: 0 12px 12px 0;
+}
+.main .include-collection .add-collection {
+      padding: 8px 12px;
+      font-size: 14px;
+      border: 1px solid #DCDCDC;
+      border-radius: 4px;
+}
+.main .include-collection .add-collection i {
+        margin-right: 4px;
+        color: #969696;
+}
+.main .recommend-note a {
+    position: relative;
+    margin: 20px 2px 0 0;
+    width: 200px;
+    height: 160px;
+    display: inline-block;
+}
+.main .recommend-note a:after {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 160px;
+      border-radius: 0 0 4px 4px;
+      -webkit-box-shadow: inset 0px -80px 50px -22px rgba(0, 0, 0, 0.6);
+              box-shadow: inset 0px -80px 50px -22px rgba(0, 0, 0, 0.6);
+      top: 0;
+      left: 0;
+      z-index: 1;
+}
+.main .recommend-note .name {
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    right: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #ffffff;
+    z-index: 2;
+}
+.main .recommend-note .author {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    z-index: 2;
+}
+.main .recommend-note .avatar {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+.main .recommend-note .avatar img {
+      border-radius: 50%;
+}
+.main .recommend-note .author-name {
+    font-size: 12px;
+    color: #ffffff;
+    display: inline-block;
+    vertical-align: -1px;
+}
+.main .show-more {
+    margin: 0 12px 12px 0;
+    font-size: 14px;
+    color: #A0A0A0;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.pc-bind-phone-modal .modal-content, .pc-bind-phone-modal .modal-body {
+  overflow: visible;
+}
+.pc-bind-phone-modal .dropdown-menu {
+  max-height: 300px;
+  overflow: auto;
+}
+.pc-bind-phone-modal .dropdown-menu .tag {
+    background-color: #efefef;
+    color: #4A4A4A;
+    height: 28px;
+    line-height: 28px;
+    padding-left: 25px;
+    font-size: 12px;
+}
+.reader-night-mode .pc-bind-phone-modal .dropdown-menu .tag {
+  background-color: #2F2F2F;
+  color: #999999;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.tips-card-loading[data-v-f3bf5228], .tips-card[data-v-f3bf5228] {
+  width: 460px;
+  position: relative;
+  left: 0;
+  top: 0;
+  border-radius: 6px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid #d9d9d9;
+}
+.tips-card-loading[data-v-f3bf5228] {
+  height: 200px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+.tips-card-loading div[data-v-f3bf5228] {
+    background-color: #EAEAEA;
+}
+.tips-card-loading .avatar[data-v-f3bf5228] {
+    width: 72px !important;
+    height: 72px !important;
+    border-radius: 50%;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+.tips-card-loading .name[data-v-f3bf5228] {
+    width: 120px;
+    height: 20px;
+    position: absolute;
+    left: 110px;
+    top: 31px;
+}
+.tips-card-loading .content[data-v-f3bf5228] {
+    position: absolute;
+    left: 110px;
+    top: 62px;
+    width: 238px;
+    height: 39.2px;
+    background-color: transparent;
+}
+.tips-card-loading .content .text[data-v-f3bf5228], .tips-card-loading .content .text-delay[data-v-f3bf5228] {
+      height: 14px;
+      position: absolute;
+      left: 0;
+      width: 100%;
+}
+.tips-card-loading .content .text[data-v-f3bf5228] {
+      top: 2px;
+      -webkit-animation: loading-data-v-f3bf5228 1s ease-in-out infinite;
+      animation: loading-data-v-f3bf5228 1s ease-in-out infinite;
+}
+.tips-card-loading .content .text-delay[data-v-f3bf5228] {
+      bottom: 3px;
+      -webkit-animation: loading-data-v-f3bf5228 1s ease-in-out -0.5s infinite;
+      animation: loading-data-v-f3bf5228 1s ease-in-out -0.5s infinite;
+}
+@keyframes loading-data-v-f3bf5228 {
+0% {
+    width: 60%;
+}
+50% {
+    width: 100%;
+}
+100% {
+    width: 60%;
+}
+}
+@-webkit-keyframes loading {
+0% {
+    width: 60%;
+}
+50% {
+    width: 100%;
+}
+100% {
+    width: 60%;
+}
+}
+.tips-card-loading .meta[data-v-f3bf5228] {
+    width: 30px;
+    height: 42px;
+    position: absolute;
+    bottom: 20px;
+    background-color: transparent;
+}
+.tips-card-loading .meta.meta-1[data-v-f3bf5228] {
+      left: 30px;
+}
+.tips-card-loading .meta.meta-2[data-v-f3bf5228] {
+      left: 90px;
+}
+.tips-card-loading .meta.meta-3[data-v-f3bf5228] {
+      left: 150px;
+}
+.tips-card-loading .meta .count[data-v-f3bf5228], .tips-card-loading .meta .type[data-v-f3bf5228] {
+      position: absolute;
+}
+.tips-card-loading .meta .count[data-v-f3bf5228] {
+      left: -5px;
+      top: 6px;
+      height: 18px;
+      width: 40px;
+}
+.tips-card-loading .meta .type[data-v-f3bf5228] {
+      left: 1px;
+      bottom: 2px;
+      height: 13px;
+      width: 28px;
+}
+.tips-card-loading .button[data-v-f3bf5228] {
+    position: absolute;
+    bottom: 17px;
+    width: 90px;
+    height: 40px;
+    border-radius: 40px;
+}
+.tips-card-loading .message[data-v-f3bf5228] {
+    right: 120px;
+}
+.tips-card-loading .follow[data-v-f3bf5228] {
+    right: 17px;
+}
+.tips-card[data-v-f3bf5228] {
+  z-index: 10;
+}
+.tips-card .card-content[data-v-f3bf5228] {
+    padding: 20px 20px 0 20px;
+}
+.tips-card .card-content .summary[data-v-f3bf5228] {
+      padding: 8px 0 20px 90px;
+      min-height: 92px;
+      position: relative;
+}
+.tips-card .card-content .summary .avatar[data-v-f3bf5228] {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 72px;
+        height: 72px;
+        cursor: pointer;
+        border-radius: 50%;
+        background-color: #EAEAEA;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+}
+.tips-card .card-content .summary .name[data-v-f3bf5228] {
+        height: 26px;
+        margin-right: 3px;
+        margin-bottom: 8px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-box-pack: start;
+        -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+}
+.tips-card .card-content .summary .name .nickname[data-v-f3bf5228] {
+          color: #333333;
+          font-size: 19px;
+          font-weight: bold;
+          overflow: hidden;
+          -o-text-overflow: ellipsis;
+             text-overflow: ellipsis;
+          white-space: nowrap;
+          cursor: pointer;
+}
+.tips-card .card-content .summary .name .sex[data-v-f3bf5228], .tips-card .card-content .summary .name .badge[data-v-f3bf5228] {
+          -webkit-flex-shrink: 0;
+              -ms-flex-negative: 0;
+                  flex-shrink: 0;
+          display: inline-block;
+}
+.tips-card .card-content .summary .name .sex[data-v-f3bf5228] {
+          font-size: 19px;
+          width: 19px;
+          margin: 0 4px;
+}
+.tips-card .card-content .summary .intro[data-v-f3bf5228] {
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+           text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        margin-bottom: 12px;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #333333;
+}
+.tips-card .card-content .summary .intro.block[data-v-f3bf5228] {
+          color: #999999;
+}
+.tips-card .card-content .summary .list .item[data-v-f3bf5228] {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 13px;
+        color: #999999;
+        cursor: pointer;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+           text-overflow: ellipsis;
+        white-space: nowrap;
+}
+.tips-card .card-content .summary .list .item i[data-v-f3bf5228] {
+          margin-right: 2px;
+}
+.tips-card .card-footer[data-v-f3bf5228] {
+    border-top: 1px solid #F0F0F0;
+    padding: 15px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow: hidden;
+    _zoom: 1;
+}
+.tips-card .card-footer .profile[data-v-f3bf5228] {
+      width: 198px;
+      overflow: hidden;
+      _zoom: 1;
+      float: left;
+}
+.tips-card .card-footer .profile div[data-v-f3bf5228] {
+        float: left;
+        width: 60px;
+        height: 44px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+}
+.tips-card .card-footer .profile div span[data-v-f3bf5228] {
+          display: block;
+          width: 100%;
+          text-align: center;
+}
+.tips-card .card-footer .profile div .type[data-v-f3bf5228] {
+          font-size: 13px;
+          color: #999999;
+}
+.tips-card .card-footer .profile div .count[data-v-f3bf5228] {
+          font-size: 18px;
+          color: #333333;
+}
+.tips-card .card-footer .social[data-v-f3bf5228] {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: row;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      -webkit-box-pack: end;
+      -webkit-justify-content: flex-end;
+          -ms-flex-pack: end;
+              justify-content: flex-end;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      float: right;
+      overflow: hidden;
+      _zoom: 1;
+}
+.tips-card .card-footer .social .message[data-v-f3bf5228] {
+        border: 1px solid rgba(59, 194, 29, 0.7);
+        color: #42C02E;
+        margin: 0 10px 0 16px;
+        font-size: 15px;
+        padding: 8px 0;
+        width: 90px;
+        border-radius: 40px;
+        text-align: center;
+        cursor: pointer;
+        float: left;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+}
+.tips-card .card-footer .social .message[data-v-f3bf5228]:hover {
+          border: 1px solid #42C02E;
+          color: #42C02E;
+          background-color: rgba(59, 194, 29, 0.05);
+}
+.tips-card .card-footer .social .user-follow-button[data-v-f3bf5228] {
+        font-size: 15px;
+        padding: 8px 0;
+        width: 100px;
+}
+.arrow[data-v-f3bf5228] {
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  left: 0;
+  z-index: 20;
+  pointer-events: none;
+}
+.arrow i[data-v-f3bf5228] {
+    position: absolute;
+    left: 50%;
+    margin: 0;
+    margin-left: -10px;
+    border-width: 10px;
+    border-color: transparent;
+    padding: 0;
+}
+.arrow em[data-v-f3bf5228] {
+    display: block;
+    position: absolute;
+    left: -9px;
+    border-width: 9px;
+    border-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+.arrow-type-top[data-v-f3bf5228] {
+  bottom: 1px;
+}
+.arrow-type-top i[data-v-f3bf5228] {
+    border-top-color: #d9d9d9;
+    border-style: solid dashed dashed;
+    top: 0;
+}
+.arrow-type-top em[data-v-f3bf5228] {
+    border-style: solid dashed dashed;
+    border-top-color: #ffffff;
+    top: -10px;
+}
+.arrow-type-bottom[data-v-f3bf5228] {
+  top: 1px;
+}
+.arrow-type-bottom i[data-v-f3bf5228] {
+    border-bottom-color: #d9d9d9;
+    border-style: dashed dashed solid;
+    top: -10px;
+}
+.arrow-type-bottom em[data-v-f3bf5228] {
+    border-style: dashed dashed solid;
+    border-bottom-color: #ffffff;
+    top: -8px;
+}
+.reader-night-mode .tips-card-loading[data-v-f3bf5228] {
+  background-color: #3F3F3F;
+  border-color: #2F2F2F;
+}
+.reader-night-mode .tips-card-loading .avatar[data-v-f3bf5228], .reader-night-mode .tips-card-loading .name[data-v-f3bf5228], .reader-night-mode .tips-card-loading .text[data-v-f3bf5228], .reader-night-mode .tips-card-loading .text-delay[data-v-f3bf5228], .reader-night-mode .tips-card-loading .count[data-v-f3bf5228], .reader-night-mode .tips-card-loading .type[data-v-f3bf5228], .reader-night-mode .tips-card-loading .button[data-v-f3bf5228] {
+    background-color: #545454;
+}
+.reader-night-mode .tips-card[data-v-f3bf5228] {
+  background-color: #3F3F3F;
+  border-color: #2F2F2F;
+}
+.reader-night-mode .tips-card .card-content .summary .name .nickname[data-v-f3bf5228] {
+    color: #C8C8C8;
+}
+.reader-night-mode .tips-card .card-content .summary .name .nickname[data-v-f3bf5228]:hover {
+      color: #ffffff;
+}
+.reader-night-mode .tips-card .card-content .summary .intro[data-v-f3bf5228] {
+    color: #C8C8C8;
+}
+.reader-night-mode .tips-card .card-footer[data-v-f3bf5228] {
+    border-top-color: #2F2F2F;
+}
+.reader-night-mode .tips-card .card-footer .profile div .count[data-v-f3bf5228] {
+      color: #C8C8C8;
+}
+.reader-night-mode .arrow.arrow-type-top em[data-v-f3bf5228] {
+  border-top-color: #3F3F3F;
+}
+.reader-night-mode .arrow.arrow-type-top i[data-v-f3bf5228] {
+  border-top-color: #2F2F2F;
+}
+.reader-night-mode .arrow.arrow-type-bottom em[data-v-f3bf5228] {
+  border-bottom-color: #3F3F3F;
+}
+.reader-night-mode .arrow.arrow-type-bottom i[data-v-f3bf5228] {
+  border-bottom-color: #2F2F2F;
+}
+</style><style type="text/css">
+.v-tooltip-container,
+.v-tooltip-content {
+  display: inline-block;
+}
+.v-tooltip-container {
+  position: relative;
+}
+.v-tooltip-container .v-tooltip-content {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+.v-tooltip-container .v-tooltip-wrap {
+    position: absolute;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-top {
+      bottom: 100%;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+              transform: translateX(-50%);
+      padding-bottom: 10px;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-bottom {
+      top: 100%;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+              transform: translateX(-50%);
+      padding-top: 10px;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-left {
+      top: 50%;
+      right: 100%;
+      -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+              transform: translateY(-50%);
+      padding-right: 10px;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-right {
+      top: 50%;
+      left: 100%;
+      -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+              transform: translateY(-50%);
+      padding-left: 10px;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-top-start {
+      bottom: 100%;
+      left: 0;
+      padding-bottom: 10px;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-top-end {
+      bottom: 100%;
+      right: 0;
+      padding-bottom: 10px;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-bottom-start {
+      top: 100%;
+      left: 0;
+      padding-top: 10px;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-bottom-end {
+      top: 100%;
+      right: 0;
+      padding-top: 10px;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-left-start {
+      top: 0;
+      right: 100%;
+      padding-right: 10px;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-left-end {
+      bottom: 0;
+      right: 100%;
+      padding-right: 10px;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-right-start {
+      top: 0;
+      left: 100%;
+      padding-left: 10px;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-right-end {
+      bottom: 0;
+      left: 100%;
+      padding-left: 10px;
+}
+</style></head>
+
+  <body lang="zh-CN" class="reader-black-font">
+    <!-- 全局顶部导航栏 -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="width-limit">
+    <!-- 左上方 Logo -->
+    <a class="logo" href="https://www.jianshu.com/"><img src="./关于iOS socket都在这里了 - 简书_files/nav-logo-4c7bbafe27adc892f3046e6978459bac.png" alt="Nav logo"></a>
+
+    <!-- 右上角 -->
+      <!-- 登录显示写文章 -->
+      <a class="btn write-btn" target="_blank" href="https://www.jianshu.com/writer#/">
+        <i class="iconfont ic-write"></i>写文章
+</a>
+    <!-- 如果用户登录，显示下拉菜单 -->
+      <div class="user">
+        <div data-hover="dropdown">
+          <a class="avatar" href="https://www.jianshu.com/u/43d5043771be"><img src="./关于iOS socket都在这里了 - 简书_files/f2bddcaa4dc4.jpg" alt="120"></a>
+        </div>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="https://www.jianshu.com/u/43d5043771be">
+              <i class="iconfont ic-navigation-profile"></i><span>我的主页</span>
+</a>          </li>
+          <li>
+            <!-- TODO bookmarks_path -->
+            <a href="https://www.jianshu.com/bookmarks">
+              <i class="iconfont ic-navigation-mark"></i><span>收藏的文章</span>
+</a>          </li>
+          <li>
+            <a href="https://www.jianshu.com/users/43d5043771be/liked_notes">
+              <i class="iconfont ic-navigation-like"></i><span>喜欢的文章</span>
+</a>          </li>
+          <li>
+            <a href="https://www.jianshu.com/wallet">
+              <i class="iconfont ic-navigation-wallet"></i><span>我的钱包</span>
+</a>          </li>
+          <li>
+            <a href="https://www.jianshu.com/settings">
+              <i class="iconfont ic-navigation-settings"></i><span>设置</span>
+</a>          </li>
+          <li>
+            <a href="https://www.jianshu.com/faqs">
+              <i class="iconfont ic-navigation-feedback"></i><span>帮助与反馈</span>
+</a>          </li>
+          <li>
+            <a rel="nofollow" data-method="delete" href="https://www.jianshu.com/sign_out">
+              <i class="iconfont ic-navigation-signout"></i><span>退出</span>
+</a>          </li>
+        </ul>
+      </div>
+
+    <div class="style-mode"><a class="style-mode-btn"><i class="iconfont ic-navigation-mode"></i></a> <div class="popover-modal" style="left: 0px; display: none;"><div class="meta"><i class="iconfont ic-navigation-night"></i><span>夜间模式</span></div> <div class="switch day-night-group"><a class="switch-btn">开</a> <a class="switch-btn active">关</a></div> <hr> <div class="switch font-family-group"><a class="switch-btn font-song">宋体</a> <a class="switch-btn font-hei active">黑体</a></div> <div class="switch"><a class="switch-btn active">简</a> <a class="switch-btn">繁</a></div></div></div>
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="nav navbar-nav">
+            <li class="tab ">
+              <a href="https://www.jianshu.com/">
+                <span class="menu-text">发现</span><i class="iconfont ic-navigation-discover menu-icon"></i>
+</a>            </li>
+            <li class="tab ">
+              <a href="https://www.jianshu.com/subscriptions">
+                <span class="menu-text">关注</span><i class="iconfont ic-navigation-follow menu-icon"></i>
+</a>            </li>
+            <li class="tab notification"><a data-hover="dropdown" href="https://www.jianshu.com/notifications" class="notification-btn"><span class="menu-text">消息</span> <i class="iconfont ic-navigation-notification menu-icon"></i> <!----> <!----></a> <ul class="dropdown-menu"><li><a href="https://www.jianshu.com/notifications#/comments"><i class="iconfont ic-comments"></i> <span>评论</span> <!----></a></li><li><a href="https://www.jianshu.com/notifications#/chats"><i class="iconfont ic-chats"></i> <span>简信</span> <!----></a></li><li><a href="https://www.jianshu.com/notifications#/requests"><i class="iconfont ic-requests"></i> <span>投稿请求</span> <!----></a></li><li><a href="https://www.jianshu.com/notifications#/likes"><i class="iconfont ic-likes"></i> <span>喜欢和赞</span> <!----></a></li><li><a href="https://www.jianshu.com/notifications#/follows"><i class="iconfont ic-follows"></i> <span>关注</span> <!----></a></li><li><a href="https://www.jianshu.com/notifications#/money"><i class="iconfont ic-money"></i> <span>赞赏</span> <!----></a></li><li><a href="https://www.jianshu.com/notifications#/others"><i class="iconfont ic-others"></i> <span>其他消息</span> <!----></a></li></ul></li>
+          <li class="search">
+            <form target="_blank" action="https://www.jianshu.com/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+              <input type="text" name="q" id="q" value="" autocomplete="off" placeholder="搜索" class="search-input">
+              <a class="search-btn" href="javascript:void(null)"><i class="iconfont ic-search"></i></a>
+</form>          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+    
+<div class="note">
+  <a target="_blank" href="https://www.jianshu.com/apps/download?utm_source=sbc" id="web-note-ad-fixed"><span class="close">×</span></a>
+  <div class="post">
+    <div class="article">
+        <h1 class="title">关于iOS socket都在这里了</h1>
+
+        <!-- 作者区域 -->
+        <div class="author">
+          <a class="avatar" href="https://www.jianshu.com/u/211925b3ca7c">
+            <img src="./关于iOS socket都在这里了 - 简书_files/6f8023f3-bec2-418b-a9ce-97a1dc87758e.jpeg" alt="96">
+</a>          <div class="info">
+            <span class="name"><a href="https://www.jianshu.com/u/211925b3ca7c">吴白</a></span>
+            <!-- 关注用户按钮 -->
+            <a class="btn btn-success follow"><i class="iconfont ic-follow"></i><span>关注</span></a>
+            <!-- 文章数据信息 -->
+            <div class="meta">
+              <!-- 如果文章更新时间大于发布时间，那么使用 tooltip 显示更新时间 -->
+                <span class="publish-time" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="最后编辑于 2017.12.03 05:43">2016.05.21 22:46*</span>
+              <span class="wordage">字数 3001</span>
+            <span class="views-count">阅读 30972</span><span class="comments-count">评论 44</span><span class="likes-count">喜欢 422</span><span class="rewards-count ">赞赏 2</span></div>
+          </div>
+          <!-- 如果是当前作者，加入编辑按钮 -->
+        </div>
+        <!-- -->
+
+        <!-- 文章内容 -->
+        <div data-note-content="" class="show-content">
+          <p>socket（套接字）是通信的基石，是支持TCP/IP协议的网络通信的基本操作单元，包含进行网络通信必须的五种信息：连接使用的协议，本地主机的IP地址，本地进程的协议端口，远地主机的IP地址，远地进程的协议端口。</p>
+<p>多个TCP连接或多个应用程序进程可能需要通过同一个TCP协议端口传输数据。为了区别不同的应用程序进程和连接，计算机操作系统为应用程序与TCP／IP协议交互提供了套接字(Socket)接口。应用层可以和传输层通过Socket接口，区分来自不同应用程序进程或网络连接的通信，实现数据传输的并发服务。</p>
+<p>建立Socket连接至少需要一对套接字，其中一个运行于客户端，称为ClientSocket，另一个运行于服务器端，称为ServerSocket。套接字之间的连接过程分为三个步骤：服务器监听，客户端请求，连接确认。</p>
+<p>Socket可以支持不同的传输层协议（TCP或UDP），当使用TCP协议进行连接时，该Socket连接就是一个TCP连接,UDP连接同理。</p>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 402px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 57.45%;"></div>
+<div class="image-view" data-width="1335" data-height="767"><img data-original-src="//upload-images.jianshu.io/upload_images/1170656-6b9392fad31b711d.png" data-original-width="1335" data-original-height="767" data-original-format="image/png" data-original-filesize="195504" class="" style="cursor: zoom-in;" src="./关于iOS socket都在这里了 - 简书_files/1170656-6b9392fad31b711d.png"></div>
+</div>
+<div class="image-caption">Socket使用</div>
+</div>
+<h4>socket使用的库函数</h4>
+<p>1.创建套接字</p>
+<pre class="hljs less"><code class="less"> <span class="hljs-selector-tag">Socket</span>(af,type,protocol)<span class="hljs-comment">//建立地址和套接字的联系</span>
+
+ <span class="hljs-selector-tag">bind</span>(sockid, local addr, addrlen)<span class="hljs-comment">//服务器端侦听客户端的请求</span>
+
+ <span class="hljs-selector-tag">listen</span>( Sockid ,quenlen)<span class="hljs-comment">//建立服务器/客户端的连接 (面向连接TCP）</span>
+</code></pre>
+<p>2.客户端请求连接</p>
+<pre class="hljs stylus"><code class="stylus"><span class="hljs-function"><span class="hljs-title">Connect</span><span class="hljs-params">(sockid, destaddr, addrlen)</span></span><span class="hljs-comment">//服务器端等待从编号为Sockid的Socket上接收客户连接请求</span>
+
+newsockid=accept(Sockid，Clientaddr, paddrlen)<span class="hljs-comment">//发送/接收数据</span>
+</code></pre>
+<p>3.面向连接：</p>
+<pre class="hljs stylus"><code class="stylus"><span class="hljs-function"><span class="hljs-title">send</span><span class="hljs-params">(sockid, buff, bufflen)</span></span> 
+<span class="hljs-function"><span class="hljs-title">recv</span><span class="hljs-params">( )</span></span>
+</code></pre>
+<p>4.面向无连接：</p>
+<pre class="hljs stylus"><code class="stylus"><span class="hljs-function"><span class="hljs-title">sendto</span><span class="hljs-params">(sockid,buff,…,addrlen)</span></span> 
+<span class="hljs-function"><span class="hljs-title">recvfrom</span><span class="hljs-params">( )</span></span>
+</code></pre>
+<p>5.释放套接字</p>
+<pre class="hljs stylus"><code class="stylus"><span class="hljs-function"><span class="hljs-title">close</span><span class="hljs-params">(socked)</span></span>
+</code></pre>
+<p>在iOS中以NSStream(流)来发送和接收数据,可以设置流的代理，对流状态的变化做出相应的动作(连接建立，接收到数据，连接关闭）。</p>
+<p>NSStream：数据流的父类，用于定义抽象特性，例如：打开、关闭代理，NSStream继承自CFStream(CoreFoundation)<br>
+NSInputStream：NSStream的子类，用于读取输入<br>
+NSOutputStream：NSSTream的子类，用于写输出。</p>
+<p>服务端先不提，客户端代码大概如下：</p>
+<pre class="hljs objectivec"><code class="objectivec"><span class="hljs-comment">//需要导入&lt;arpa/inet.h&gt;，&lt;netdb.h&gt;</span>
+- (<span class="hljs-keyword">void</span>)test
+{
+<span class="hljs-built_in">NSString</span> * host =<span class="hljs-string">@"123.33.33.1"</span>;
+<span class="hljs-built_in">NSNumber</span> * port = @<span class="hljs-number">1233</span>;
+
+<span class="hljs-comment">// 创建 socket</span>
+<span class="hljs-keyword">int</span> socketFileDescriptor = socket(AF_INET, SOCK_STREAM, <span class="hljs-number">0</span>);
+<span class="hljs-keyword">if</span> (<span class="hljs-number">-1</span> == socketFileDescriptor) {
+    <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"创建失败"</span>);
+    <span class="hljs-keyword">return</span>;
+}
+
+<span class="hljs-comment">// 获取 IP 地址 </span>
+<span class="hljs-keyword">struct</span> hostent * remoteHostEnt = gethostbyname([host UTF8String]);
+<span class="hljs-keyword">if</span> (<span class="hljs-literal">NULL</span> == remoteHostEnt) {
+    close(socketFileDescriptor);
+     <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"%@"</span>,<span class="hljs-string">@"无法解析服务器的主机名"</span>);
+    <span class="hljs-keyword">return</span>;
+}
+
+<span class="hljs-keyword">struct</span> in_addr * remoteInAddr = (<span class="hljs-keyword">struct</span> in_addr *)remoteHostEnt-&gt;h_addr_list[<span class="hljs-number">0</span>];
+
+<span class="hljs-comment">// 设置 socket 参数</span>
+<span class="hljs-keyword">struct</span> sockaddr_in socketParameters;
+socketParameters.sin_family = AF_INET;
+socketParameters.sin_addr = *remoteInAddr;
+socketParameters.sin_port = htons([port intValue]);
+
+<span class="hljs-comment">// 连接 socket</span>
+<span class="hljs-keyword">int</span> ret = connect(socketFileDescriptor, (<span class="hljs-keyword">struct</span> sockaddr *) &amp;socketParameters, <span class="hljs-keyword">sizeof</span>(socketParameters));
+<span class="hljs-keyword">if</span> (<span class="hljs-number">-1</span> == ret) {
+    close(socketFileDescriptor);
+    <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"连接失败"</span>);
+    <span class="hljs-keyword">return</span>;
+}
+
+<span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"连接成功"</span>);
+}
+</code></pre>
+<p>大概就是这样，因为是C语言的，所以看起来不是很方便，一般开发中都会使用比较简单的方法，如下。</p>
+<h4>CocoaAsyncSocket</h4>
+<p>iOS的socket实现是特别简单的，可以使用用github的开源类库<a href="https://link.jianshu.com/?t=https://github.com/robbiehanson/CocoaAsyncSocket" target="_blank" rel="nofollow">cocoaasyncsocket</a>简化开发，cocoaasyncsocket是支持tcp和ump的。代码大概如下：</p>
+<pre class="hljs objectivec"><code class="objectivec">- (<span class="hljs-keyword">IBAction</span>)connectToServer:(<span class="hljs-keyword">id</span>)sender {
+<span class="hljs-comment">// 1.与服务器通过三次握手建立连接</span>
+<span class="hljs-built_in">NSString</span> *host = <span class="hljs-string">@"133.33.33.1"</span>;
+<span class="hljs-keyword">int</span> port = <span class="hljs-number">1212</span>;
+
+<span class="hljs-comment">//创建一个socket对象</span>
+_socket = [[GCDAsyncSocket alloc] initWithDelegate:<span class="hljs-keyword">self</span> delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="hljs-number">0</span>)];
+
+<span class="hljs-comment">//连接</span>
+<span class="hljs-built_in">NSError</span> *error = <span class="hljs-literal">nil</span>;
+[_socket connectToHost:host onPort:port error:&amp;error];
+
+<span class="hljs-keyword">if</span> (error) {
+    <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"%@"</span>,error);
+}
+}
+
+
+<span class="hljs-meta">#pragma mark -socket的代理</span>
+<span class="hljs-meta">#pragma mark 连接成功</span>
+-(<span class="hljs-keyword">void</span>)socket:(GCDAsyncSocket *)sock didConnectToHost:(<span class="hljs-built_in">NSString</span> *)host port:(uint16_t)port{
+<span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"%s"</span>,__func__);
+}
+
+
+<span class="hljs-meta">#pragma mark 断开连接</span>
+-(<span class="hljs-keyword">void</span>)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(<span class="hljs-built_in">NSError</span> *)err{
+<span class="hljs-keyword">if</span> (err) {
+    <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"连接失败"</span>);
+}<span class="hljs-keyword">else</span>{
+    <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"正常断开"</span>);
+}
+}
+
+
+<span class="hljs-meta">#pragma mark 数据发送成功</span>
+-(<span class="hljs-keyword">void</span>)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(<span class="hljs-keyword">long</span>)tag{
+<span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"%s"</span>,__func__);
+
+<span class="hljs-comment">//发送完数据手动读取，-1不设置超时</span>
+[sock readDataWithTimeout:<span class="hljs-number">-1</span> tag:tag];
+}
+
+<span class="hljs-meta">#pragma mark 读取数据</span>
+-(<span class="hljs-keyword">void</span>)socket:(GCDAsyncSocket *)sock didReadData:(<span class="hljs-built_in">NSData</span> *)data withTag:(<span class="hljs-keyword">long</span>)tag{
+<span class="hljs-built_in">NSString</span> *receiverStr = [[<span class="hljs-built_in">NSString</span> alloc] initWithData:data encoding:<span class="hljs-built_in">NSUTF8StringEncoding</span>];
+<span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"%s %@"</span>,__func__,receiverStr);
+}
+</code></pre>
+<p>下面是原理补充，有兴趣的朋友可以细看。</p>
+<hr>
+<h4>网络七层协议</h4>
+<p>网络七层协议由下往上分别为物理层、数据链路层、网络层、传输层、会话层、表示层和应用层。其中物理层、数据链路层和网络层通常被称作媒体层，是网络工程师所研究的对象；传输层、会话层、表示层和应用层则被称作主机层，是用户所面向和关心的内容。</p>
+<p>HTTP协议对应于应用层，TCP协议对应于传输层，IP协议对应于网络层，HTTP协议是基于TCP连接的,三者本质上没有可比性。 TCP/IP是传输层协议，主要解决数据如何在网络中传输；而HTTP是应用层协议，主要解决如何包装数据。<strong>Socket是应用层与TCP/IP协议族通信的中间软件抽象层，是它的一组接口</strong>。</p>
+<div class="image-package">
+<div class="image-container" style="max-width: 200px; max-height: 178px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 89.0%;"></div>
+<div class="image-view" data-width="200" data-height="178"><img data-original-src="//upload-images.jianshu.io/upload_images/1170656-1ceffddc43357839.jpg" data-original-width="200" data-original-height="178" data-original-format="image/jpeg" data-original-filesize="6790" class="" style="cursor: zoom-in;" src="./关于iOS socket都在这里了 - 简书_files/1170656-1ceffddc43357839.jpg"></div>
+</div>
+<div class="image-caption">网络七层协议</div>
+</div>
+<h4>TCP/IP五层模型</h4>
+<p>TCP/IP五层模型的协议分为：应用层、传输层、网络层、数据链路层和物理层。中继器、集线器、还有我们通常说的双绞线也工作在物理层；网桥（现已很少使用）、以太网交换机（二层交换机）、网卡（其实网卡是一半工作在物理层、一半工作在数据链路层）在数据链路层；路由器、三层交换机在网络层；传输层主要是四层交换机、也有工作在四层的路由器。</p>
+<p>TCP/IP协议中的应用层处理七层模型中的第五层、第六层和第七层的功能。TCP/IP协议中的传输层并不能总是保证在传输层可靠地传输数据包，而七层模型可以做到。TCP/IP协议还提供一项名为UDP（用户数据报协议）的选择。UDP不能保证可靠的数据包传输。</p>
+<div class="image-package">
+<div class="image-container" style="max-width: 479px; max-height: 325px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 67.85%;"></div>
+<div class="image-view" data-width="479" data-height="325"><img data-original-src="//upload-images.jianshu.io/upload_images/1170656-df46648a7fadfa42.jpg" data-original-width="479" data-original-height="325" data-original-format="image/jpeg" data-original-filesize="40388" class="" style="cursor: zoom-in;" src="./关于iOS socket都在这里了 - 简书_files/1170656-df46648a7fadfa42.jpg"></div>
+</div>
+<div class="image-caption">对应关系</div>
+</div>
+<blockquote>
+<p>TCP：面向连接、传输可靠(保证数据正确性,保证数据顺序)、用于传输大量数据(流模式)、速度慢，建立连接需要开销较多(时间，系统资源)。<br>
+UDP：面向非连接、传输不可靠、用于传输少量数据(数据包模式)、速度快。<br>
+TCP是一种流模式的协议，UDP是一种数据报模式的协议。</p>
+</blockquote>
+<p>在传输数据时，可以只使用传输层（TCP/IP），但是那样的话，由于没有应用层，便无法识别数据内容，如果想要使传输的数据有意义，则必须使用应用层协议（HTTP、FTP、TELNET等），也可以自己定义应用层协议。</p>
+<p>WEB使用Tcp作传输层协议，以封装HTTP文本信息，然后使用TCP/IP做传输层协议将它发送到网络上。<strong>Socket是对TCP/IP协议的封装，Socket本身并不是协议，而是一个调用接口（API），通过Socket，我们才能使用TCP/IP协议</strong>。</p>
+<div class="image-package">
+<div class="image-container" style="max-width: 542px; max-height: 476px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 87.82%;"></div>
+<div class="image-view" data-width="542" data-height="476"><img data-original-src="//upload-images.jianshu.io/upload_images/1170656-fe177ff611c71d76.jpg" data-original-width="542" data-original-height="476" data-original-format="image/jpeg" data-original-filesize="105364" class="" style="cursor: zoom-in;" src="./关于iOS socket都在这里了 - 简书_files/1170656-fe177ff611c71d76.jpg"></div>
+</div>
+<div class="image-caption">Socket的位置</div>
+</div>
+<h4>TCP连接</h4>
+<p>要想明白Socket连接，先要明白TCP连接。手机能够使用联网功能是因为手机底层实现了TCP/IP协议，可以使手机终端通过无线网络建立TCP连接。TCP协议可以对上层网络提供接口，使上层网络数据的传输建立在“无差别”的网络之上。</p>
+<p>建立起一个TCP连接需要经过“三次握手”：<br>
+第一次握手：客户端发送syn包(syn=j)到服务器，并进入SYN_SEND状态，等待服务器确认；<br>
+第二次握手：服务器收到syn包，必须确认客户的SYN（ack=j+1），同时自己也发送一个SYN包（syn=k），即SYN+ACK包，此时服务器进入SYN_RECV状态；<br>
+第三次握手：客户端收到服务器的SYN＋ACK包，向服务器发送确认包ACK(ack=k+1)，此包发送完毕，客户端和服务器进入ESTABLISHED状态，完成三次握手。</p>
+<p>三次握手(Three-way Handshake)即建立一个TCP连接时，需要客户端和服务器总共发送3个包。三次握手的目的是连接服务器指定端口，建立TCP连接,并同步连接双方的序列号和确认号并交换TCP 窗口大小信息。<strong>在socket编程中，客户端执行connect()时,将触发三次握手</strong>。</p>
+<div class="image-package">
+<div class="image-container" style="max-width: 453px; max-height: 362px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 79.91%;"></div>
+<div class="image-view" data-width="453" data-height="362"><img data-original-src="//upload-images.jianshu.io/upload_images/1170656-a3120a20b9393a94.png" data-original-width="453" data-original-height="362" data-original-format="image/png" data-original-filesize="31462" class="" style="cursor: zoom-in;" src="./关于iOS socket都在这里了 - 简书_files/1170656-a3120a20b9393a94.png"></div>
+</div>
+<div class="image-caption">三次握手</div>
+</div>
+<p>握手过程中传送的包里不包含数据，三次握手完毕后，客户端与服务器才正式开始传送数据。理想状态下，TCP连接一旦建立，在通信双方中的任何一方主动关闭连接之前，TCP 连接都将被一直保持下去。断开连接时服务器和客户端均可以主动发起断开TCP连接的请求，断开过程需要经过“四次握手”。</p>
+<p>TCP连接的拆除需要发送四个包，因此称为四次握手(four-way handshake)。在socket编程中，任何一方执行close()操作即可产生握手（有地方称为“挥手”）操作。</p>
+<div class="image-package">
+<div class="image-container" style="max-width: 600px; max-height: 503px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 83.83%;"></div>
+<div class="image-view" data-width="600" data-height="503"><img data-original-src="//upload-images.jianshu.io/upload_images/1170656-26cc9a86da3d9a68.jpg" data-original-width="600" data-original-height="503" data-original-format="image/jpeg" data-original-filesize="37611" class="" style="cursor: zoom-in;" src="./关于iOS socket都在这里了 - 简书_files/1170656-26cc9a86da3d9a68.jpg"></div>
+</div>
+<div class="image-caption">TCP连接的拆除</div>
+</div>
+<p>之所以有“三次握手”和“四次握手”的区别，是因为连接时当Server端收到Client端的SYN连接请求报文后，可以直接发送SYN+ACK报文。其中ACK报文是用来应答的，SYN报文是用来同步的。但是关闭连接时，当Server端收到FIN报文时，很可能并不会立即关闭SOCKET，所以只能先回复一个ACK报文，告诉Client端，”你发的FIN报文我收到了”。只有等到我Server端所有的报文都发送完了，我才能发送FIN报文，因此不能一起发送。故需要四步握手。</p>
+<h4>HTTP连接</h4>
+<p>HTTP协议即超文本传送协议(HypertextTransfer Protocol )，是Web联网的基础，也是手机联网常用的协议之一，HTTP协议是建立在TCP协议之上的一种应用。</p>
+<p>HTTP连接最显著的特点是客户端发送的每次请求都需要服务器回送响应，在请求结束后，会主动释放连接。从建立连接到关闭连接的过程称为“一次连接”。因此HTTP连接是一种“短连接”，要保持客户端程序的在线状态，需要不断地向服务器发起连接请求。若服务器长时间无法收到客户端的请求，则认为客户端“下线”，若客户端长时间无法收到服务器的回复，则认为网络已经断开。在HTTP 1.0中，客户端的每次请求都要求建立一次单独的连接，在处理完本次请求后，就自动释放连接。在HTTP 1.1中则可以在一次连接中处理多个请求，并且多个请求可以重叠进行，不需要等待一个请求结束后再发送下一个请求。</p>
+<p><strong>HTTPS</strong>（Hyper Text Transfer Protocol over Secure Socket Layer），是以安全为目标的HTTP通道，是HTTP的安全版。 在HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密的详细内容就需要SSL。 HTTPS存在不同于HTTP的默认端口及一个加密/身份验证层（在HTTP与TCP之间）。HTTP协议以明文方式发送内容，不提供任何方式的数据加密，如果攻击者截取了Web浏览器和网站服务器之间的传输报文，就可以直接读懂其中的信息，因此HTTP协议不适合传输一些敏感信息。</p>
+<p>https协议需要到ca申请证书；http是超文本传输协议，信息是明文传输，https 则是具有安全性的ssl加密传输协议；http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443；http的连接很简单，是无状态的，HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议。</p>
+<div class="image-package">
+<div class="image-container" style="max-width: 590px; max-height: 641px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 108.64%;"></div>
+<div class="image-view" data-width="590" data-height="641"><img data-original-src="//upload-images.jianshu.io/upload_images/1170656-0601aab8deb7df8d.jpeg" data-original-width="590" data-original-height="641" data-original-format="image/jpeg" data-original-filesize="49629" class="" style="cursor: zoom-in;" src="./关于iOS socket都在这里了 - 简书_files/1170656-0601aab8deb7df8d.jpeg"></div>
+</div>
+<div class="image-caption">HTTPS</div>
+</div>
+<h4>Socket连接与HTTP连接的不同</h4>
+<p><strong>通常情况下Socket连接就是TCP连接</strong>，因此Socket连接一旦建立，通信双方即可开始相互发送数据内容，直到双方连接断开。但在实际应用中，客户端到服务器之间的通信防火墙默认会关闭长时间处于非活跃状态的连接而导致 Socket 连接断连，因此需要通过轮询告诉网络，该连接处于活跃状态。</p>
+<p>而HTTP连接使用的是“请求—响应”的方式，不仅在请求时需要先建立连接，而且需要客户端向服务器发出请求后，服务器端才能回复数据。</p>
+
+        </div>
+        <!--  -->
+
+        <div class="show-foot">
+          <a class="notebook" href="https://www.jianshu.com/nb/2382713">
+            <i class="iconfont ic-search-notebook"></i>
+            <span>iOS微条目</span>
+</a>          <div class="copyright" data-toggle="tooltip" data-html="true" data-original-title="转载请联系作者获得授权，并标注“简书作者”。">
+            © 著作权归作者所有
+          </div>
+          <div class="modal-wrap" data-report-note="">
+            <a id="report-modal">举报文章</a>
+          </div>
+        </div>
+    </div>
+
+    <!-- 文章底部作者信息 -->
+      <div class="follow-detail">
+        <div class="info">
+          <a class="avatar" href="https://www.jianshu.com/u/211925b3ca7c">
+            <img src="./关于iOS socket都在这里了 - 简书_files/6f8023f3-bec2-418b-a9ce-97a1dc87758e.jpeg" alt="96">
+</a>          <a class="btn btn-success follow"><i class="iconfont ic-follow"></i><span>关注</span></a>
+          <a class="title" href="https://www.jianshu.com/u/211925b3ca7c">吴白</a>
+          
+        <p>写了 250646 字，被 3865 人关注，获得了 7042 个喜欢</p></div>
+          <div class="signature">莫听穿林打叶声，何妨吟啸且徐行。竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。</div>
+      </div>
+
+      <div class="support-author"><p>小礼物走一走，来简书关注我</p> <div class="btn btn-pay">赞赏支持</div> <div class="supporter"><ul class="support-list"><li><a target="_blank" href="javascript:void(0)" class="avatar"><img src="./关于iOS socket都在这里了 - 简书_files/wechat-771371d5741b0c32cd805caeb48ad6c0.png"></a></li><li><a target="_blank" href="https://www.jianshu.com/u/cc61507fad81" class="avatar"><img src="./关于iOS socket都在这里了 - 简书_files/aaec26720730"></a></li></ul> <!----></div> <!----> <!----></div>
+
+    <div class="meta-bottom">
+      <div class="like"><div class="btn like-group"><div class="btn-like"><a><i class="iconfont ic-like"></i>喜欢</a></div> <div class="modal-wrap"><a>422</a></div></div> <!----></div>
+      <div class="share-group">
+        <a class="share-circle" data-action="weixin-share" data-toggle="tooltip" data-original-title="分享到微信">
+          <i class="iconfont ic-wechat"></i>
+        </a>
+        <a class="share-circle" data-action="weibo-share" data-toggle="tooltip" href="javascript:void((function(s,d,e,r,l,p,t,z,c){var%20f=&#39;http://v.t.sina.com.cn/share/share.php?appkey=1881139527&#39;,u=z||d.location,p=[&#39;&amp;url=&#39;,e(u),&#39;&amp;title=&#39;,e(t||d.title),&#39;&amp;source=&#39;,e(r),&#39;&amp;sourceUrl=&#39;,e(l),&#39;&amp;content=&#39;,c||&#39;gb2312&#39;,&#39;&amp;pic=&#39;,e(p||&#39;&#39;)].join(&#39;&#39;);function%20a(){if(!window.open([f,p].join(&#39;&#39;),&#39;mb&#39;,[&#39;toolbar=0,status=0,resizable=1,width=440,height=430,left=&#39;,(s.width-440)/2,&#39;,top=&#39;,(s.height-430)/2].join(&#39;&#39;)))u.href=[f,p].join(&#39;&#39;);};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();})(screen,document,encodeURIComponent,&#39;&#39;,&#39;&#39;,&#39;&#39;, &#39;推荐 @吴白_____ 的文章《关于iOS socket都在这里了》（ 分享自 @简书 ）&#39;,&#39;https://www.jianshu.com/p/3e4f3de18e3b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=weibo&#39;,&#39;页面编码gb2312|utf-8默认gb2312&#39;));" data-original-title="分享到微博">
+          <i class="iconfont ic-weibo"></i>
+        </a>
+          <a class="share-circle" data-toggle="tooltip" href="http://cwb.assets.jianshu.io/notes/images/4065405/weibo/image_67172eb7e777.jpg" target="_blank" data-original-title="下载长微博图片">
+            <i class="iconfont ic-picture"></i>
+          </a>
+        <a class="share-circle more-share" tabindex="0" data-toggle="popover" data-placement="top" data-html="true" data-trigger="focus" href="javascript:void(0);" data-content="
+          &lt;ul class=&quot;share-list&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=&#39;+e(&#39;https://www.jianshu.com/p/3e4f3de18e3b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=qzone&#39;)+&#39;&amp;title=&#39;+e(&#39;推荐 吴白 的文章《关于iOS socket都在这里了》&#39;),x=function(){if(!window.open(r,&#39;qzone&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-zone&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到QQ空间&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://twitter.com/share?url=&#39;+e(&#39;https://www.jianshu.com/p/3e4f3de18e3b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=twitter&#39;)+&#39;&amp;text=&#39;+e(&#39;推荐 吴白 的文章《关于iOS socket都在这里了》（ 分享自 @jianshucom ）&#39;)+&#39;&amp;related=&#39;+e(&#39;jianshucom&#39;),x=function(){if(!window.open(r,&#39;twitter&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-twitter&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到Twitter&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://www.facebook.com/dialog/share?app_id=483126645039390&amp;display=popup&amp;href=https://www.jianshu.com/p/3e4f3de18e3b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=facebook&#39;,x=function(){if(!window.open(r,&#39;facebook&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-facebook&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到Facebook&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://plus.google.com/share?url=&#39;+e(&#39;https://www.jianshu.com/p/3e4f3de18e3b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=google_plus&#39;),x=function(){if(!window.open(r,&#39;google_plus&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-google&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到Google+&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:&#39;&#39;,r=&#39;http://www.douban.com/recommend/?url=&#39;+e(&#39;https://www.jianshu.com/p/3e4f3de18e3b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=douban&#39;)+&#39;&amp;title=&#39;+e(&#39;关于iOS socket都在这里了&#39;)+&#39;&amp;sel=&#39;+e(s)+&#39;&amp;v=1&#39;,x=function(){if(!window.open(r,&#39;douban&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r+&#39;&amp;r=1&#39;};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-douban&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到豆瓣&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        " data-original-title="" title="">更多分享</a>
+      </div>
+    </div>
+    <div><div id="comment-list" class="comment-list"><div><form class="new-comment"><a class="avatar"><img src="./关于iOS socket都在这里了 - 简书_files/f2bddcaa4dc4(1).jpg"></a> <textarea placeholder="写下你的评论..."></textarea> <!----></form> <!----></div> <div id="normal-comment-list" class="normal-comment-list"><div><div><div class="top-title"><span>44条评论</span> <a class="author-only">只看作者</a> <a class="close-btn" style="display: none;">关闭评论</a> <div class="pull-right"><a class="active">按喜欢排序</a><a class="">按时间正序</a><a class="">按时间倒序</a></div></div></div> <!----> <!----> <div class="comments-placeholder" style="display: none;"><div class="author"><div class="avatar"></div> <div class="info"><div class="name"></div> <div class="meta"></div></div></div> <div class="text"></div> <div class="text animation-delay"></div> <div class="tool-group"><i class="iconfont ic-zan-active"></i><div class="zan"></div> <i class="iconfont ic-list-comments"></i><div class="zan"></div></div></div> <div id="comment-2481078" class="comment"><div><div class="author"><div data-v-f3bf5228="" class="v-tooltip-container" style="z-index: 0;"><div class="v-tooltip-content"><a href="https://www.jianshu.com/u/e29e3b684529" target="_blank" class="avatar"><img src="./关于iOS socket都在这里了 - 简书_files/1bdb94a86ae2.jpg"></a>  </div> <!----></div> <div class="info"><a href="https://www.jianshu.com/u/e29e3b684529" target="_blank" class="name">ChinaSwift</a> <!----> <!----> <div class="meta"><span>3楼 · 2016.05.21 23:52</span></div></div></div> <div class="comment-wrap"><p>不错不错！！赞!</p> <div class="tool-group"><a class=""><i class="iconfont ic-zan"></i> <span>2人赞</span></a> <a class=""><i class="iconfont ic-comment"></i> <span>回复</span></a> <a class="report"><span>举报</span></a> <!----></div></div></div> <div class="sub-comment-list hide"><!----> <!----></div></div><div id="comment-2480525" class="comment"><div><div class="author"><div data-v-f3bf5228="" class="v-tooltip-container" style="z-index: 0;"><div class="v-tooltip-content"><a href="https://www.jianshu.com/u/0f12dd341179" target="_blank" class="avatar"><img src="./关于iOS socket都在这里了 - 简书_files/900fb95d2186.jpg"></a>  </div> <!----></div> <div class="info"><a href="https://www.jianshu.com/u/0f12dd341179" target="_blank" class="name">轩辕小羽</a> <!----> <!----> <div class="meta"><span>2楼 · 2016.05.21 23:11</span></div></div></div> <div class="comment-wrap"><p>socket在网络开发中一直很重要 <img src="./关于iOS socket都在这里了 - 简书_files/+1.png" alt=":+1:" title=":+1:" class="emoji" width="20" height="20"> </p> <div class="tool-group"><a class=""><i class="iconfont ic-zan"></i> <span>1人赞</span></a> <a class=""><i class="iconfont ic-comment"></i> <span>回复</span></a> <a class="report"><span>举报</span></a> <!----></div></div></div> <div class="sub-comment-list"><div id="comment-2480551" class="sub-comment"><p><div data-v-f3bf5228="" class="v-tooltip-container" style="z-index: 0;"><div class="v-tooltip-content"><a href="https://www.jianshu.com/u/211925b3ca7c" target="_blank">吴白</a>：
+            </div> <!----></div> <span><a href="https://www.jianshu.com/users/0f12dd341179" class="maleskine-author" target="_blank" data-user-slug="0f12dd341179">@轩辕小羽</a>  <img src="./关于iOS socket都在这里了 - 简书_files/relaxed.png" alt=":relaxed:" title=":relaxed:" class="emoji" width="20" height="20"> </span></p> <div class="sub-tool-group"><span>2016.05.21 23:13</span> <a class=""><i class="iconfont ic-comment"></i> <span>回复</span></a> <a class="report"><span>举报</span></a> <!----></div></div> <div class="sub-comment more-comment"><a class="add-comment-btn"><i class="iconfont ic-subcomment"></i> <span>添加新评论</span></a> <!----> <!----> <!----></div> <!----></div></div><div id="comment-2489809" class="comment"><div><div class="author"><div data-v-f3bf5228="" class="v-tooltip-container" style="z-index: 0;"><div class="v-tooltip-content"><a href="https://www.jianshu.com/u/8133e9e1478f" target="_blank" class="avatar"><img src="./关于iOS socket都在这里了 - 简书_files/11-4d7c6ca89f439111aff57b23be1c73ba.jpg"></a>  </div> <!----></div> <div class="info"><a href="https://www.jianshu.com/u/8133e9e1478f" target="_blank" class="name">ST_Dawn</a> <!----> <!----> <div class="meta"><span>4楼 · 2016.05.22 19:23</span></div></div></div> <div class="comment-wrap"><p>mark</p> <div class="tool-group"><a class=""><i class="iconfont ic-zan"></i> <span>1人赞</span></a> <a class=""><i class="iconfont ic-comment"></i> <span>回复</span></a> <a class="report"><span>举报</span></a> <!----></div></div></div> <div class="sub-comment-list hide"><!----> <!----></div></div><div id="comment-2492300" class="comment"><div><div class="author"><div data-v-f3bf5228="" class="v-tooltip-container" style="z-index: 0;"><div class="v-tooltip-content"><a href="https://www.jianshu.com/u/9f94d02340f1" target="_blank" class="avatar"><img src="./关于iOS socket都在这里了 - 简书_files/3-9a2bcc21a5d89e21dafc73b39dc5f582.jpg"></a>  </div> <!----></div> <div class="info"><a href="https://www.jianshu.com/u/9f94d02340f1" target="_blank" class="name">JamesYea</a> <!----> <!----> <div class="meta"><span>5楼 · 2016.05.22 22:38</span></div></div></div> <div class="comment-wrap"><p>不错不错，谢谢分享！</p> <div class="tool-group"><a class=""><i class="iconfont ic-zan"></i> <span>1人赞</span></a> <a class=""><i class="iconfont ic-comment"></i> <span>回复</span></a> <a class="report"><span>举报</span></a> <!----></div></div></div> <div class="sub-comment-list hide"><!----> <!----></div></div><div id="comment-2495540" class="comment"><div><div class="author"><div data-v-f3bf5228="" class="v-tooltip-container" style="z-index: 0;"><div class="v-tooltip-content"><a href="https://www.jianshu.com/u/ba041e340cb6" target="_blank" class="avatar"><img src="./关于iOS socket都在这里了 - 简书_files/77cb1cf3ae6e.jpg"></a>  </div> <!----></div> <div class="info"><a href="https://www.jianshu.com/u/ba041e340cb6" target="_blank" class="name">一缕白衣</a> <!----> <!----> <div class="meta"><span>8楼 · 2016.05.23 09:15</span></div></div></div> <div class="comment-wrap"><p>表示正在使用</p> <div class="tool-group"><a class=""><i class="iconfont ic-zan"></i> <span>1人赞</span></a> <a class=""><i class="iconfont ic-comment"></i> <span>回复</span></a> <a class="report"><span>举报</span></a> <!----></div></div></div> <div class="sub-comment-list hide"><!----> <!----></div></div><div id="comment-2495701" class="comment"><div><div class="author"><div data-v-f3bf5228="" class="v-tooltip-container" style="z-index: 0;"><div class="v-tooltip-content"><a href="https://www.jianshu.com/u/9f5f02c04052" target="_blank" class="avatar"><img src="./关于iOS socket都在这里了 - 简书_files/cf296945bfd0.jpg"></a>  </div> <!----></div> <div class="info"><a href="https://www.jianshu.com/u/9f5f02c04052" target="_blank" class="name">齐刘海姑娘</a> <!----> <!----> <div class="meta"><span>9楼 · 2016.05.23 09:27</span></div></div></div> <div class="comment-wrap"><p>哈喽~您的文章已收录专题【我不是程序猿，请叫我攻城狮】<a href="http://www.jianshu.com/collection/db91065b98c6" rel="nofollow" target="_blank">http://www.jianshu.com/collection/db91065b98c6</a>，欢迎关注投稿哦~ <img src="./关于iOS socket都在这里了 - 简书_files/kissing_heart.png" alt=":kissing_heart:" title=":kissing_heart:" class="emoji" width="20" height="20"> <img src="./关于iOS socket都在这里了 - 简书_files/heart.png" alt=":heart:" title=":heart:" class="emoji" width="20" height="20">  <img src="./关于iOS socket都在这里了 - 简书_files/heart.png" alt=":heart:" title=":heart:" class="emoji" width="20" height="20">  <img src="./关于iOS socket都在这里了 - 简书_files/smile.png" alt=":smile:" title=":smile:" class="emoji" width="20" height="20"></p> <div class="tool-group"><a class=""><i class="iconfont ic-zan"></i> <span>1人赞</span></a> <a class=""><i class="iconfont ic-comment"></i> <span>回复</span></a> <a class="report"><span>举报</span></a> <!----></div></div></div> <div class="sub-comment-list hide"><!----> <!----></div></div><div id="comment-2495863" class="comment"><div><div class="author"><div data-v-f3bf5228="" class="v-tooltip-container" style="z-index: 0;"><div class="v-tooltip-content"><a href="https://www.jianshu.com/u/a9836b91c4b8" target="_blank" class="avatar"><img src="./关于iOS socket都在这里了 - 简书_files/5ce8a01b01e1.gif"></a>  </div> <!----></div> <div class="info"><a href="https://www.jianshu.com/u/a9836b91c4b8" target="_blank" class="name">开创未来86</a> <!----> <!----> <div class="meta"><span>10楼 · 2016.05.23 09:38</span></div></div></div> <div class="comment-wrap"><p>mark</p> <div class="tool-group"><a class=""><i class="iconfont ic-zan"></i> <span>1人赞</span></a> <a class=""><i class="iconfont ic-comment"></i> <span>回复</span></a> <a class="report"><span>举报</span></a> <!----></div></div></div> <div class="sub-comment-list hide"><!----> <!----></div></div><div id="comment-2610216" class="comment"><div><div class="author"><div data-v-f3bf5228="" class="v-tooltip-container" style="z-index: 0;"><div class="v-tooltip-content"><a href="https://www.jianshu.com/u/7df1abfe720e" target="_blank" class="avatar"><img src="./关于iOS socket都在这里了 - 简书_files/21a57c43f93f.jpg"></a>  </div> <!----></div> <div class="info"><a href="https://www.jianshu.com/u/7df1abfe720e" target="_blank" class="name">OP航海</a> <!----> <!----> <div class="meta"><span>12楼 · 2016.06.02 08:48</span></div></div></div> <div class="comment-wrap"><p>mark</p> <div class="tool-group"><a class=""><i class="iconfont ic-zan"></i> <span>1人赞</span></a> <a class=""><i class="iconfont ic-comment"></i> <span>回复</span></a> <a class="report"><span>举报</span></a> <!----></div></div></div> <div class="sub-comment-list hide"><!----> <!----></div></div><div id="comment-2610931" class="comment"><div><div class="author"><div data-v-f3bf5228="" class="v-tooltip-container" style="z-index: 0;"><div class="v-tooltip-content"><a href="https://www.jianshu.com/u/53fb509bd05c" target="_blank" class="avatar"><img src="./关于iOS socket都在这里了 - 简书_files/e317a9ed-820a-4e30-8a98-10519229d4f6.JPG"></a>  </div> <!----></div> <div class="info"><a href="https://www.jianshu.com/u/53fb509bd05c" target="_blank" class="name">葱神大大</a> <!----> <!----> <div class="meta"><span>13楼 · 2016.06.02 09:39</span></div></div></div> <div class="comment-wrap"><p>看下去还是挺用心去写的，虽然这些早就知道，但是还是支持一下作者。</p> <div class="tool-group"><a class=""><i class="iconfont ic-zan"></i> <span>1人赞</span></a> <a class=""><i class="iconfont ic-comment"></i> <span>回复</span></a> <a class="report"><span>举报</span></a> <!----></div></div></div> <div class="sub-comment-list hide"><!----> <!----></div></div><div id="comment-2494886" class="comment"><div><div class="author"><div data-v-f3bf5228="" class="v-tooltip-container" style="z-index: 0;"><div class="v-tooltip-content"><a href="https://www.jianshu.com/u/e1d5d9596e20" target="_blank" class="avatar"><img src="./关于iOS socket都在这里了 - 简书_files/73e19fa5-c4da-4414-9dae-9f415331b525.jpg"></a>  </div> <!----></div> <div class="info"><a href="https://www.jianshu.com/u/e1d5d9596e20" target="_blank" class="name">Melvin1998</a> <!----> <!----> <div class="meta"><span>7楼 · 2016.05.23 08:07</span></div></div></div> <div class="comment-wrap"><p>哪里用到了我好想没讲过囧</p> <div class="tool-group"><a class=""><i class="iconfont ic-zan"></i> <span>赞</span></a> <a class=""><i class="iconfont ic-comment"></i> <span>回复</span></a> <a class="report"><span>举报</span></a> <!----></div></div></div> <div class="sub-comment-list hide"><!----> <!----></div></div><div id="comment-2496219" class="comment"><div><div class="author"><div data-v-f3bf5228="" class="v-tooltip-container" style="z-index: 0;"><div class="v-tooltip-content"><a href="https://www.jianshu.com/u/8b858db87184" target="_blank" class="avatar"><img src="./关于iOS socket都在这里了 - 简书_files/081ec6d8f11f"></a>  </div> <!----></div> <div class="info"><a href="https://www.jianshu.com/u/8b858db87184" target="_blank" class="name">快乐的木木金冈</a> <!----> <!----> <div class="meta"><span>11楼 · 2016.05.23 10:03</span></div></div></div> <div class="comment-wrap"><p>客户端代码中使用了尤达语句，这样表述是不是会不太好<img src="./关于iOS socket都在这里了 - 简书_files/kissing_heart.png" alt=":kissing_heart:" title=":kissing_heart:" class="emoji" width="20" height="20"></p> <div class="tool-group"><a class=""><i class="iconfont ic-zan"></i> <span>赞</span></a> <a class=""><i class="iconfont ic-comment"></i> <span>回复</span></a> <a class="report"><span>举报</span></a> <!----></div></div></div> <div class="sub-comment-list hide"><!----> <!----></div></div><div id="comment-2654581" class="comment"><div><div class="author"><div data-v-f3bf5228="" class="v-tooltip-container" style="z-index: 0;"><div class="v-tooltip-content"><a href="https://www.jianshu.com/u/4b72739c1379" target="_blank" class="avatar"><img src="./关于iOS socket都在这里了 - 简书_files/47976a1139f1.jpg"></a>  </div> <!----></div> <div class="info"><a href="https://www.jianshu.com/u/4b72739c1379" target="_blank" class="name">Laki只是想做一个程序猿</a> <!----> <!----> <div class="meta"><span>14楼 · 2016.06.05 21:48</span></div></div></div> <div class="comment-wrap"><p>写的很精彩,很不错</p> <div class="tool-group"><a class=""><i class="iconfont ic-zan"></i> <span>赞</span></a> <a class=""><i class="iconfont ic-comment"></i> <span>回复</span></a> <a class="report"><span>举报</span></a> <!----></div></div></div> <div class="sub-comment-list hide"><!----> <!----></div></div><div id="comment-2664097" class="comment"><div><div class="author"><div data-v-f3bf5228="" class="v-tooltip-container" style="z-index: 0;"><div class="v-tooltip-content"><a href="https://www.jianshu.com/u/37a61595cd20" target="_blank" class="avatar"><img src="./关于iOS socket都在这里了 - 简书_files/1745938709b9.jpg"></a>  </div> <!----></div> <div class="info"><a href="https://www.jianshu.com/u/37a61595cd20" target="_blank" class="name">EagleOne</a> <!----> <!----> <div class="meta"><span>15楼 · 2016.06.06 16:57</span></div></div></div> <div class="comment-wrap"><p>客户端和客户端之间的socket连接是如何操作的，你这里都是客户端和服务器之间的链接啊</p> <div class="tool-group"><a class=""><i class="iconfont ic-zan"></i> <span>赞</span></a> <a class=""><i class="iconfont ic-comment"></i> <span>回复</span></a> <a class="report"><span>举报</span></a> <!----></div></div></div> <div class="sub-comment-list hide"><!----> <!----></div></div><div id="comment-2783552" class="comment"><div><div class="author"><div data-v-f3bf5228="" class="v-tooltip-container" style="z-index: 0;"><div class="v-tooltip-content"><a href="https://www.jianshu.com/u/af956396d977" target="_blank" class="avatar"><img src="./关于iOS socket都在这里了 - 简书_files/4041e467acbb.jpg"></a>  </div> <!----></div> <div class="info"><a href="https://www.jianshu.com/u/af956396d977" target="_blank" class="name">小凡凡520</a> <!----> <!----> <div class="meta"><span>16楼 · 2016.06.16 22:45</span></div></div></div> <div class="comment-wrap"><p>请问一下 APNS使用的是http还是套接字呢</p> <div class="tool-group"><a class=""><i class="iconfont ic-zan"></i> <span>赞</span></a> <a class=""><i class="iconfont ic-comment"></i> <span>回复</span></a> <a class="report"><span>举报</span></a> <!----></div></div></div> <div class="sub-comment-list"><div id="comment-5142565" class="sub-comment"><p><div data-v-f3bf5228="" class="v-tooltip-container" style="z-index: 0;"><div class="v-tooltip-content"><a href="https://www.jianshu.com/u/343cea0f7107" target="_blank">JcccZ</a>：
+            </div> <!----></div> <span><a href="https://www.jianshu.com/users/af956396d977" class="maleskine-author" target="_blank" data-user-slug="af956396d977">@小凡凡520</a>  socket</span></p> <div class="sub-tool-group"><span>2016.10.27 12:52</span> <a class=""><i class="iconfont ic-comment"></i> <span>回复</span></a> <a class="report"><span>举报</span></a> <!----></div></div> <div class="sub-comment more-comment"><a class="add-comment-btn"><i class="iconfont ic-subcomment"></i> <span>添加新评论</span></a> <!----> <!----> <!----></div> <!----></div></div><div id="comment-2807706" class="comment"><div><div class="author"><div data-v-f3bf5228="" class="v-tooltip-container" style="z-index: 0;"><div class="v-tooltip-content"><a href="https://www.jianshu.com/u/e866d4225293" target="_blank" class="avatar"><img src="./关于iOS socket都在这里了 - 简书_files/ccc4cb997ad7"></a>  </div> <!----></div> <div class="info"><a href="https://www.jianshu.com/u/e866d4225293" target="_blank" class="name">MissPeng</a> <!----> <!----> <div class="meta"><span>17楼 · 2016.06.19 08:48</span></div></div></div> <div class="comment-wrap"><p>系统的了解了网络通信 谢谢作者</p> <div class="tool-group"><a class=""><i class="iconfont ic-zan"></i> <span>赞</span></a> <a class=""><i class="iconfont ic-comment"></i> <span>回复</span></a> <a class="report"><span>举报</span></a> <!----></div></div></div> <div class="sub-comment-list hide"><!----> <!----></div></div></div></div> <!----> <div><ul class="pagination"><!---->  <li><a href="javascript:void(null)" class="active">1</a></li> <li><a>2</a></li><li><a>3</a></li> <li><a>下一页</a></li></ul></div></div></div>
+  </div>
+
+  <div class="side-tool"><ul><li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="回到顶部" style=""><a class="function-button"><i class="iconfont ic-backtop"></i></a></li> <li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="将文章加入专题"><a class="js-submit-button"><i class="iconfont ic-addcollectionmodal"></i></a> <!----></li> <li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="收藏文章"><a class="function-button"><i class="iconfont ic-mark"></i></a></li> <li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="分享文章"><a tabindex="0" role="button" data-toggle="popover" data-placement="left" data-html="true" data-trigger="focus" href="javascript:void(0);" data-content="&lt;ul class=&#39;share-list&#39;&gt;
+                &lt;li&gt;&lt;a class=&quot;weixin-share&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-weixin&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到微信&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;javascript:void((function(s,d,e,r,l,p,t,z,c){var%20f=&#39;http://v.t.sina.com.cn/share/share.php?appkey=1881139527&#39;,u=z||d.location,p=[&#39;&amp;url=&#39;,e(u),&#39;&amp;title=&#39;,e(t||d.title),&#39;&amp;source=&#39;,e(r),&#39;&amp;sourceUrl=&#39;,e(l),&#39;&amp;content=&#39;,c||&#39;gb2312&#39;,&#39;&amp;pic=&#39;,e(p||&#39;&#39;)].join(&#39;&#39;);function%20a(){if(!window.open([f,p].join(&#39;&#39;),&#39;mb&#39;,[&#39;toolbar=0,status=0,resizable=1,width=440,height=430,left=&#39;,(s.width-440)/2,&#39;,top=&#39;,(s.height-430)/2].join(&#39;&#39;)))u.href=[f,p].join(&#39;&#39;);};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();})(screen,document,encodeURIComponent,&#39;&#39;,&#39;&#39;,&#39;&#39;, &#39;推荐 @吴白_____ 的文章《关于iOS socket都在这里了》（ 分享自 @简书 ）&#39;,&#39;https://www.jianshu.com/p/3e4f3de18e3b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=weibo&#39;,&#39;页面编码gb2312|utf-8默认gb2312&#39;));&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-weibo&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到微博&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                
+                &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=&#39;+e(&#39;https://www.jianshu.com/p/3e4f3de18e3b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=qzone&#39;)+&#39;&amp;title=&#39;+e(&#39;推荐 吴白 的文章《关于iOS socket都在这里了》&#39;),x=function(){if(!window.open(r,&#39;qzone&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-zone&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到QQ空间&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://twitter.com/share?url=&#39;+e(&#39;https://www.jianshu.com/p/3e4f3de18e3b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=twitter&#39;)+&#39;&amp;text=&#39;+e(&#39;推荐 吴白 的文章《关于iOS socket都在这里了》（ 分享自 @jianshucom ）&#39;)+&#39;&amp;related=&#39;+e(&#39;jianshucom&#39;),x=function(){if(!window.open(r,&#39;twitter&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-twitter&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到Twitter&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://www.facebook.com/dialog/share?app_id=483126645039390&amp;display=popup&amp;href=https://www.jianshu.com/p/3e4f3de18e3b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=facebook&#39;,x=function(){if(!window.open(r,&#39;facebook&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-facebook&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到Facebook&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://plus.google.com/share?url=&#39;+e(&#39;https://www.jianshu.com/p/3e4f3de18e3b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=google_plus&#39;),x=function(){if(!window.open(r,&#39;google_plus&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-google&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到Google+&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:&#39;&#39;,r=&#39;http://www.douban.com/recommend/?url=&#39;+e(&#39;https://www.jianshu.com/p/3e4f3de18e3b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=douban&#39;)+&#39;&amp;title=&#39;+e(&#39;关于iOS socket都在这里了&#39;)+&#39;&amp;sel=&#39;+e(s)+&#39;&amp;v=1&#39;,x=function(){if(!window.open(r,&#39;douban&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r+&#39;&amp;r=1&#39;};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-douban&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到豆瓣&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;" data-original-title="" title="" class="function-button"><i class="iconfont ic-share"></i></a> <!----></li> <!----></ul></div>
+</div>
+<div class="note-bottom">
+  <div><div class="main"><div class="title">被以下专题收入，发现更多相似内容</div> <!----> <div class="include-collection"><div class="modal-wrap add-collection-wrap"><a class="add-collection"><i class="iconfont ic-follow"></i>收入我的专题</a></div> <a href="https://www.jianshu.com/c/bDHhpK?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="./关于iOS socket都在这里了 - 简书_files/首页投稿.png"><div class="name">首页投稿</div></a><a href="https://www.jianshu.com/c/eb2c222e5a44?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="./关于iOS socket都在这里了 - 简书_files/11423953_2880_1800.jpg"><div class="name">iOS开发专题</div></a><a href="https://www.jianshu.com/c/2b509cb84d90?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="./关于iOS socket都在这里了 - 简书_files/Image_16-4-18_at_14.31.jpg"><div class="name">iOS</div></a><a href="https://www.jianshu.com/c/99bacb9556b0?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="./关于iOS socket都在这里了 - 简书_files/1452157701.jpg"><div class="name">swift</div></a><a href="https://www.jianshu.com/c/72e58596b5cb?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="./关于iOS socket都在这里了 - 简书_files/1452158404.jpg"><div class="name">Swift</div></a><a href="https://www.jianshu.com/c/8148903c12ba?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="./关于iOS socket都在这里了 - 简书_files/1461955458.jpg"><div class="name">不常用，倒是可以装逼</div></a><a href="https://www.jianshu.com/c/3233d1a249ca?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="./关于iOS socket都在这里了 - 简书_files/162902612251cbd95971b82.png"><div class="name">iOS Dev...</div></a> <a class="show-more">
+        展开更多
+        <i class="iconfont ic-show"></i></a></div></div> <!----> <!----></div>
+  <div data-vcomp="recommended-notes" data-note-id="4065405"></div>
+  <!-- 相关文章 -->
+  <div class="seo-recommended-notes">
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="https://www.jianshu.com/p/a99410ed0938?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <img src="./关于iOS socket都在这里了 - 简书_files/2092929-bcad8ed9d4f570e3.png" alt="240">
+</a>          <a class="title" target="_blank" href="https://www.jianshu.com/p/a99410ed0938?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">Socket大杀器</a>
+          <p class="description">一: 网络各个协议：TCP/IP、SOCKET、HTTP 网络七层由下往上分别为物理层、数据链路层、网络层、传输层、会话层、表示层和应用层。 1,  物理层、数据链路层和网络层通常被称作媒体层，是网络工程师所研究的对象； 2, 传输层、会话层、表示层和应用层则被称作主机层，...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/57da48d44319?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="./关于iOS socket都在这里了 - 简书_files/0839e96b-1668-4cb4-84ea-eb7990199d5e.jpeg" alt="48">
+            </div>
+            <span class="name">陆yu</span>
+</a>        </div>
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="https://www.jianshu.com/p/cee5fe6d3c39?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <img src="./关于iOS socket都在这里了 - 简书_files/2498154-82d8c420244f0f48.png" alt="240">
+</a>          <a class="title" target="_blank" href="https://www.jianshu.com/p/cee5fe6d3c39?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">通信协议——Http、TCP、UDP</a>
+          <p class="description">参考:http://www.2cto.com/net/201611/569006.html TCP HTTP UDP都是通信协议，也就是通信时所遵守的规则，只有双方按照这个规则“说话”，对方才能理解或为之服务。 TCP HTTP UDP三者的关系: TCP/IP是个协议组，...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/c71ea24e5e2d?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="./关于iOS socket都在这里了 - 简书_files/5-33d2da32c552b8be9a0548c7a4576607.jpg" alt="48">
+            </div>
+            <span class="name">X堇色</span>
+</a>        </div>
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="https://www.jianshu.com/p/0d85a0fb5f93?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">IOS　Socket使用大全</a>
+          <p class="description">第一部分、概念的理解1、什么是Socket？Socket又称之为“套接字”，是系统提供的用于网络通信的方法。它的实质并不是一种协议，没有规定计算机应当怎么样传递消息，只是给程序员提供了一个发送消息的接口，程序员使用这个接口提供的方法，发送与接收消息。Socket描述了一个I...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/688378eae5e5?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="./关于iOS socket都在这里了 - 简书_files/d1d951c2a085.jpg" alt="48">
+            </div>
+            <span class="name">Hevin_Chen</span>
+</a>        </div>
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="https://www.jianshu.com/p/03bdec58a591?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <img src="./关于iOS socket都在这里了 - 简书_files/2020313-95b9f22369ec1973.png" alt="240">
+</a>          <a class="title" target="_blank" href="https://www.jianshu.com/p/03bdec58a591?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">iOS socket应用</a>
+          <p class="description">一、网络各个协议：TCP/IP、SOCKET、HTTP等 网络七层由下往上分别为物理层、数据链路层、网络层、传输层、会话层、表示层和应用层。 其中物理层、数据链路层和网络层通常被称作媒体层，是网络工程师所研究的对象； 传输层、会话层、表示层和应用层则被称作主机层，是用户所面...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/fcac5c36f59a?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="./关于iOS socket都在这里了 - 简书_files/9b07cec6-1fb2-4631-b0b8-ed1ac24dd645.jpeg" alt="48">
+            </div>
+            <span class="name">只是前行</span>
+</a>        </div>
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="https://www.jianshu.com/p/8b605de1e491?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <img src="./关于iOS socket都在这里了 - 简书_files/1192621-6a292c7cf99d1f77.png" alt="240">
+</a>          <a class="title" target="_blank" href="https://www.jianshu.com/p/8b605de1e491?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">TCP/UDP、IP 、Socket、HTTP笔记</a>
+          <p class="description">1.1 TCP/IP协议组 TCP/IP协议(传输控制协议)由网络层的IP协议和传输层的TCP协议组成 IP层负责网络主机的定位,数据传输的路由,由IP地址可以唯一的确定Internet上的一台主机。 TCP层负责面向应用的可靠的或费可靠的数据传输机制，这是网络编程的主要对...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/c71ea24e5e2d?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="./关于iOS socket都在这里了 - 简书_files/5-33d2da32c552b8be9a0548c7a4576607.jpg" alt="48">
+            </div>
+            <span class="name">X堇色</span>
+</a>        </div>
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="https://www.jianshu.com/p/65889c883711?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">长大</a>
+          <p class="description">我不想长大，曾经的我多么天真无邪，多么烂漫可爱。曾记否，跟小伙伴在树下穿行的欢呼雀跃；同姐妹在家中打闹追逐的片片映像，那是我长大后连记起都打颤的回忆，回忆是伤，回忆是病，回忆是青春的包袱，它可以阻我前行，也许会促我奋进，但不管结果如何，都不会忘记那年青春我们正好。</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/092550633237?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="./关于iOS socket都在这里了 - 简书_files/5-33d2da32c552b8be9a0548c7a4576607.jpg" alt="48">
+            </div>
+            <span class="name">小窝qp</span>
+</a>        </div>
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="https://www.jianshu.com/p/05728699ae15?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <img src="./关于iOS socket都在这里了 - 简书_files/638846-a859bcb699a5c9b6.png" alt="240">
+</a>          <a class="title" target="_blank" href="https://www.jianshu.com/p/05728699ae15?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">第31周回顾</a>
+          <p class="description">上周总回顾 1、上周共设置任务24条，完成16条，完成率是66.67%；其中没有完成的任务中有两项有所调整交给了更加专业的人来做； 2、计划外事情又5件全部完成。基本上计划的外的事情都是当天比较着急的事情。 高优先级任务回顾 一、逐条回顾 1、完成课程笔记和感受是每周都会完...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/ce909b59523e?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="./关于iOS socket都在这里了 - 简书_files/04bb9d60-02ea-4d44-8ae2-d26f91728fbe.jpg" alt="48">
+            </div>
+            <span class="name">点墨在进化</span>
+</a>        </div>
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="https://www.jianshu.com/p/365d157d0288?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">小哭包的每日情书</a>
+          <p class="description">小帅喵最近经常夸小哭包乖乖，一般人应该会很欣然接受。但是小哭包不一样，小哭包可是学心理学的。 当即正色问道：“宝宝最近经常夸我乖乖，是不是想要正向强化我！” 小帅喵：“没有啦！”（此处应有表情—无辜脸） 小哭包：“你女朋友可是学心理学的！我可不会流口水。” 小帅喵：“好巧哦...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/069c871d8136?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="./关于iOS socket都在这里了 - 简书_files/92cedbfa7ee0.jpg" alt="48">
+            </div>
+            <span class="name">熊猫小哭包</span>
+</a>        </div>
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="https://www.jianshu.com/p/14d70b67458c?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">无标题文章</a>
+          <p class="description">速度撒撒旦</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/b708d3f4acde?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="./关于iOS socket都在这里了 - 简书_files/b07a20d6fcc2" alt="48">
+            </div>
+            <span class="name">格雷丁</span>
+</a>        </div>
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="https://www.jianshu.com/p/6842572d34f1?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">《长城》</a>
+          <p class="description">     我刚刚和室友看完了《长城》这部电影，我是个从来没写过我的感想的人，因为我觉得我的文笔不好也不会写出优美的词句，但我决定试试，谁天生都不是天才，只要我写就不晚，说不定我就成功了（这句有一点自恋哈哈哈）                                 ...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/d638e22f10f5?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="./关于iOS socket都在这里了 - 简书_files/ab62fcfd2b25.jpg" alt="48">
+            </div>
+            <span class="name">辣辣lala</span>
+</a>        </div>
+  </div>
+</div>
+
+    <script type="application/json" data-name="page-data">{"user_signed_in":true,"locale":"zh-CN","os":"mac","read_mode":"day","read_font":"font2","current_user":{"id":1772228,"nickname":"Ashimar","slug":"43d5043771be","avatar":"http://upload.jianshu.io/users/upload_avatars/1772228/f2bddcaa4dc4.jpg","unread_counts":{"chats":0,"total":0},"has_editable_collection":true},"note_show":{"is_martin_user":false,"is_author":false,"is_following_author":false,"is_liked_note":false,"follow_state":0,"uuid":"949a3d1a-b6e1-4643-ad63-d6d15ddf456a"},"note":{"id":4065405,"slug":"3e4f3de18e3b","user_id":1170656,"notebook_id":2382713,"commentable":true,"likes_count":422,"views_count":30972,"public_wordage":3001,"comments_count":44,"total_rewards_count":2,"is_author":false,"author":{"nickname":"吴白","total_wordage":250646,"followers_count":3865,"total_likes_count":7042}}}</script>
+    
+    <script src="./关于iOS socket都在这里了 - 简书_files/babel-polyfill-e27dec85eeb94683dfc7.js" crossorigin="anonymous"></script>
+    <script src="./关于iOS socket都在这里了 - 简书_files/web-base-448fc98c812854ed702d.js" crossorigin="anonymous"></script>
+<script src="./关于iOS socket都在这里了 - 简书_files/web-6561d2f4041ee57a4016.js" crossorigin="anonymous"></script>
+    
+    <script src="./关于iOS socket都在这里了 - 简书_files/entry-480644851e1673e74eca.js" crossorigin="anonymous"></script>
+    <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+  
+
+<!----><!----><!----></body></html>
